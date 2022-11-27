@@ -12,8 +12,8 @@ const HomeDashboardComponent=()=>{
                         <Lottie style={{height:"560px"}} loop={true} animationData={manage} />
                     </Col>
                     <Col className="vCenter">
-                        <p className="display-6"><b>Way2Manage</b></p>
-                        <p>Manage your liquor data hand to hand...</p>
+                        <p className="display-6"><b>Admission Portal</b></p>
+                        <p>Manage your student admission data hand to hand...</p>
                         <Link to="signin" className="btn cbtn" >Sign In</Link>
                     </Col>
                 </Row>

@@ -7,7 +7,7 @@ const FooterComponent =()=>{
         <Container style={{marginTop:"60px"}} >
             <Row>
                 <Col>
-                    <p className="h5"><b>Way2Manage</b></p>
+                    <p className="h5"><b>Admission Portal</b></p>
                     <p>Smart way handle your data</p>
                 </Col>
                 <Col >
@@ -30,7 +30,7 @@ const FooterComponent =()=>{
 
                 </Col>
                 <hr className="mt-2"/>
-         <span>Way2Manage © {new Date().getFullYear()} All Rights Reserved{" "}| Developed by <a className="link-footer" href="https://www.cwipedia.com" style={{color:"white"}}>CWIPEDIA</a></span>
+         <span>Way2Manage © {new Date().getFullYear()} All Rights Reserved{" "}| Developed by <a className="link-footer" href="https://www.google.com" style={{color:"white"}}>---</a></span>
                 <hr/>
 
             </Row>
