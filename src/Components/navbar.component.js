@@ -7,7 +7,7 @@ const NavbarComponent = () =>{
         <>
             <Navbar expand="lg shadow">
                 <Container>
-                    <Navbar.Brand href="#home">Way2Manage</Navbar.Brand>
+                    <Navbar.Brand href="#home">Admission Portal</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto mb-2 mb-lg-0 d-fle"   >
