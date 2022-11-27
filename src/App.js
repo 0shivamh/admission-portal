@@ -18,9 +18,12 @@ function App() {
           </header>
 
           <Routes>
-            <Route path="/" exact element={<HomeDashboardComponent/>}/>
-            <Route path="/signin" exact element={<SigninPage/>}/>
-            {/*<Route path=*/}
+
+                <Route path="/" exact element={<HomeDashboardComponent/>}/>
+                <Route path="/signin" exact element={<SigninPage/>}/>
+                {/*<Route path=*/}
+
+              <Route path="*"  element={<PageNotFound />} />
           </Routes>
 
           <footer>

@@ -30,7 +30,7 @@ const FooterComponent =()=>{
 
                 </Col>
                 <hr className="mt-2"/>
-         <span>Way2Manage © {new Date().getFullYear()} All Rights Reserved{" "}| Developed by <a className="link-footer" href="https://www.google.com" style={{color:"white"}}>---</a></span>
+         <span>Admission Portal © {new Date().getFullYear()} All Rights Reserved{" "}| Developed by <a className="link-footer" href="https://www.google.com" style={{color:"white"}}>---</a></span>
                 <hr/>
 
             </Row>
