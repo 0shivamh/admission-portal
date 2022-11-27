@@ -1,6 +1,6 @@
 import {Container,Row,Col} from "react-bootstrap";
 import Lottie from "lottie-react";
-import manage from "../Animations/74052-project-management-v2.json";
+import manage from "../Animations/40668-animation-for-manager.json";
 import {Link} from "react-router-dom"
 import "./style.component.css"
 const HomeDashboardComponent=()=>{
