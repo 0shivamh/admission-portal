@@ -1,0 +1,16 @@
+.cbtn{
+    background-color: #FF6666;
+    color: white;
+}
+.cbtn:hover{
+    background-color: #03203C;
+    color: white;
+}
+.link-footer{
+    color: white;
+    text-decoration: none;
+}
+.link-footer:hover{
+    color: #03203C;
+    text-decoration: none;
+}
