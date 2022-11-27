@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import SigninPage from "./Pages/signin.page";
 import FooterComponent from "./Components/footer.component";
 import HomeDashboardComponent from "./Components/HomeDashboard.component";
-
+import PageNotFound from "./Components/404.component";
 function App() {
   return (
       <div className="App">
