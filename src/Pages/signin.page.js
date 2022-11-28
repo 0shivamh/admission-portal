@@ -6,7 +6,6 @@ const SigninPage=()=>{
 
     let navigate = useNavigate();
 
-
     const [email, setEmail] = useState('');
     const [psw, setPsw] = useState('');
 

@@ -14,3 +14,15 @@
     color: grey;
     text-decoration: none;
 }
+.form-select:focus{
+    border: #03203C solid 1px;
+    box-shadow: none;
+}
+.form-control:focus{
+    border: #03203C solid 1px;
+    box-shadow: none;
+}
+.form-control:focus{
+    border: #03203C solid 1px;
+    box-shadow: none;
+}
