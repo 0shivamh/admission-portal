@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import {  useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 // import Swal from 'sweetalert2'
 
 const SigninPage=()=>{
@@ -13,10 +14,65 @@ const SigninPage=()=>{
 
     }, [])
 
+    async function login(event){
+        event.preventDefault()
+        const response= await fetch("http://localhost:5001/api/login",
+            {
+                method:'POST',
+                headers:{
+                    'x-access-token':localStorage.getItem('token'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    psw,
+                }),
+            })
+        const data= await response.json();
+        // console.log(data)
+
+        if(data.status==='okay'){
+            localStorage.setItem('token',data.user)
+            localStorage.setItem('email',email);
+            // localStorage.setItem('user_null',data._id);
+
+            Swal.fire(
+                {title:'Login Successful!',
+                    text:'Please read all Instructions carefully!',
+                    icon:'success',
+                    confirmButtonColor: '#5ae4a7',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false}
+            ).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.reload(true);
+                }
+            })
+
+
+            navigate(`/dashboard`);
+
+
+        }
+        else if(data.status==='error'){
+            Swal.fire(
+                {title:'Login Failed!',
+                    text:'Please check email or password!',
+                    icon:'error',
+                    confirmButtonColor: '#5ae4a7'}
+            )
+        }
+        //to clear all field
+
+        setEmail("");
+        setPsw("")
+
+    }
+
     return(
         <>
             <div className="login container page-bg text-center mt-4">
-                <form className="center loginform" >
+                <form className="center loginform"  onSubmit={login}>
                     <p className="display-5">Admission Officer Login</p>
                     <div className="form-floating mb-3">
                         <input type="email" className="form-control" id="floatingInput" placeholder="abc@example.com"

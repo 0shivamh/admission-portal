@@ -5,6 +5,7 @@ import SigninPage from "./Pages/signin.page";
 import FooterComponent from "./Components/footer.component";
 import HomeDashboardComponent from "./Components/HomeDashboard.component";
 import PageNotFound from "./Components/404.component";
+import CreatAccount from "./Pages/createAccount.page";
 function App() {
   return (
       <div className="App">
@@ -21,6 +22,7 @@ function App() {
 
                 <Route path="/" exact element={<HomeDashboardComponent/>}/>
                 <Route path="/signin" exact element={<SigninPage/>}/>
+              <Route path="/register" exact element={<CreatAccount/>} />
                 {/*<Route path=*/}
 
               <Route path="*"  element={<PageNotFound />} />

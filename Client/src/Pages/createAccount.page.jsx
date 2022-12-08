@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const CreatAccounte= ()=>{
+const CreatAccount= ()=>{
     let navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -146,7 +146,7 @@ const CreatAccounte= ()=>{
                         <input type="text" className="form-control" id="floatingInput5" placeholder="20202020230"
                                value={designation}
                                onChange={(e)=> setDesignation(e.target.value)} required/>
-                        <label htmlFor="floatingInput5">College Name</label>
+                        <label htmlFor="floatingInput5">Designation</label>
                     </div>
 
                     <button type="submit" className="btn cbtn mt-2" >Register</button>
@@ -159,4 +159,4 @@ const CreatAccounte= ()=>{
     </>)
 }
 
-export default CreatAccounte;
+export default CreatAccount;
