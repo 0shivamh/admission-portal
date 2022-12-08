@@ -1,7 +1,11 @@
 import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import Logout from "./logout.component";
 
 const NavbarComponent = () =>{
+
+    const token = localStorage.getItem('token');
+
 
     return(
         <>
@@ -25,7 +29,11 @@ const NavbarComponent = () =>{
                                 </NavDropdown.Item>
                             </NavDropdown>
 
-                            <Link to={"/signin"} className="btn cbtn" >Sign In</Link>
+                            {
+                                token? <Logout/>: <li className="nav-item">
+                                    <Link to="/signin" className="btn cbtn m-2">Log In</Link>
+                                </li>
+                            }
 
                         </Nav>
                     </Navbar.Collapse>

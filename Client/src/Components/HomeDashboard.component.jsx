@@ -15,7 +15,7 @@ const HomeDashboardComponent=()=>{
                         <p className="display-6"><b>Admission Portal</b></p>
                         <p>Manage your student admission data hand to hand...</p>
                         <Link to="signin" className="btn cbtn" >Sign In</Link>
-                        <Link to="dean" className="btn cbtn m-lg-2" >Admission Dean Sign Up</Link>
+                        <Link to="/register" className="btn cbtn m-lg-2" >Admission Dean Sign Up</Link>
                     </Col>
                 </Row>
             </Container>
