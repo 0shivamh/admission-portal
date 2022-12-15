@@ -6,14 +6,81 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard= ()=>{
     let navigate = useNavigate();
-    // const [name, setName] = useState('');
 
+    const [name, setName] = useState('');
+    const [contact,setContcat] =useState('');
+    // const [course,setCourse] = useState('');
+    const [domain,setDomain]= useState('');
+    const [discountAmount,setDiscountAmount]= useState('')
+    const [paidAmount,setPaidAmount] = useState('');
+    const [dueAmount,setDueAmount] = useState('');
+    const [duePayDate, setDuePaDate] = useState('');
+    const [remark, setRemark]= useState('')
 
+    async function handleAdmission(event){
+        event.preventDefault()
 
+        const response= await fetch("https://api-cwipedia.herokuapp.com/api/user-idea",
+            {
+                method:'POST',
+                headers:{
+                    'x-access-token':localStorage.getItem('token'),
+                    'email_id':localStorage.getItem('email'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    // _id,
+                    name,
+                    contact,
+                    // course,
+                    domain,
+                    discountAmount,
+                    paidAmount,
+                    dueAmount,
+                    duePayDate,
+                    remark,
+
+                }),
+
+            })
+        const data= await response.json();
+
+        if(data.status==='okay'){
+            Swal.fire(
+                {title:'Admission is processed successfully',
+                    icon:'success',
+                    confirmButtonColor: '#5ae4a7'}
+            )
+            localStorage.clear();
+            navigate(`/`);
+        }
+        else if(data.status==='error-val'){
+            Swal.fire(
+                {title:'Admission entry already exist',
+                    text:'In case if you have any problem please contact administrator!',
+                    icon:'warning',
+                    confirmButtonColor: '#5ae4a7'}
+            )
+            localStorage.clear();
+            navigate(`/`);
+
+        }
+        else if(data.status==='error'){
+            Swal.fire(
+                {title:'Failed to submit!',
+                    text:'contact administrator!',
+                    icon:'error',
+                    confirmButtonColor: '#5ae4a7'}
+            )
+            localStorage.clear();
+            navigate(`/`);
+        }
+
+    }
 
     return(<>
         {/* was-validated */}
-        <div className="login page-bg container text-center mt-4 ">
+        <div className="login page-bg container text-center mt-4" onSubmit={handleAdmission}>
 
             <p className="display-5">Admission Dashboard</p>
 

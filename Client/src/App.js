@@ -10,7 +10,7 @@ import Dashboard from "./Components/dashboard.component";
 import Logout from "./Components/logout.component";
 function App() {
     const userAuth = localStorage.getItem('token');
-    console.log(userAuth)
+    // console.log(userAuth)
     return (
 
 
@@ -31,11 +31,12 @@ function App() {
               <Route path="/register" exact element={<CreatAccount/>} />
 
               {/*private routes*/}
-              {
-                  userAuth ? <Route path="/" exact element={<HomeDashboardComponent/>}/>:
-                      <Route path="/dashboard" exact element={<Dashboard/>} />
+              {/*{*/}
+              {/*    // userAuth ? <Route path="/" exact element={<HomeDashboardComponent/>}/>:*/}
 
-              }
+              {/*}*/}
+              <Route path="/dashboard" exact element={<Dashboard/>} />
+
 
               {/*<Route path=*/}
 
