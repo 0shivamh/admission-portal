@@ -3,6 +3,7 @@ import {  Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Button} from "react-bootstrap";
 
 const Dashboard= ()=>{
     let navigate = useNavigate();
@@ -21,7 +22,7 @@ const Dashboard= ()=>{
     async function handleAdmission(event){
         event.preventDefault()
 
-        const response= await fetch("http://localhost:5001/api/user-idea",
+        const response= await fetch("http://localhost:5001/api/submitAdmission",
             {
                 method:'POST',
                 headers:{
@@ -35,6 +36,7 @@ const Dashboard= ()=>{
                     contact,
                     // course,
                     domain,
+                    totalAmount,
                     discountAmount,
                     paidAmount,
                     dueAmount,
@@ -48,7 +50,7 @@ const Dashboard= ()=>{
 
         if(data.status==='okay'){
             Swal.fire(
-                {title:'Admission is processed successfully',
+                {title:'Admission processed successfully',
                     icon:'success',
                     confirmButtonColor: '#5ae4a7'}
             )
@@ -73,8 +75,8 @@ const Dashboard= ()=>{
                     icon:'error',
                     confirmButtonColor: '#5ae4a7'}
             )
-            localStorage.clear();
-            navigate(`/`);
+            // localStorage.clear();
+            // navigate(`/`);
         }
 
     }
@@ -208,6 +210,8 @@ const Dashboard= ()=>{
 
                 <button type="submit" className="btn cbtn mt-2 mb-2" >Add</button>
             </form>
+
+            <Link to="/viewAdmissions" className="btn cbtn mt-2 mb-2">View</Link>
 
         </div>
         <ToastContainer />

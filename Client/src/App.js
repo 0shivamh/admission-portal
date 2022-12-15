@@ -8,6 +8,7 @@ import PageNotFound from "./Components/404.component";
 import CreatAccount from "./Pages/createAccount.page";
 import Dashboard from "./Components/dashboard.component";
 import Logout from "./Components/logout.component";
+import ViewAdmissionsPage from "./Pages/viewAdmissions.page";
 function App() {
     const userAuth = localStorage.getItem('token');
     // console.log(userAuth)
@@ -36,6 +37,7 @@ function App() {
 
               {/*}*/}
               <Route path="/dashboard" exact element={<Dashboard/>} />
+              <Route path="/viewAdmissions" exact element={<ViewAdmissionsPage/>} />
 
 
               {/*<Route path=*/}

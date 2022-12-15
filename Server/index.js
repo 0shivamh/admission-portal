@@ -9,7 +9,7 @@ const bcryptjs = require("bcryptjs");
 const User = require("./models/user")
 const sgMail = require("@sendgrid/mail");
 const bcrypt = require("bcrypt");
-
+const Admissions = require("./models/admission")
 
 app.use(cors());
 app.use(express.json());
@@ -17,6 +17,7 @@ app.use(express.json());
 
 const path = require("path");
 const connectDB = require("./Config/db");
+const auth = require("./middleware/auth");
 
 connectDB();
 
@@ -141,7 +142,60 @@ app.post( "/api/login",
     }
 );
 
+app.post("/api/submitAdmission",auth,
+    async (req, res) => {
 
+        const email = req.headers['email_id']
+
+        let user = await User.findOne({ email });
+
+
+
+        const {  name,contact, domain,   totalAmount,  discountAmount, paidAmount,  dueAmount, duePayDate,remark, } = req.body;
+
+
+        try {
+            let admission = new Admissions({
+                name:name,
+                contact:contact,
+                domain:domain,
+                totalAmount:totalAmount,
+                discountAmount:discountAmount,
+                paidAmount:paidAmount,
+                dueAmount:dueAmount,
+                duePayDate:duePayDate,
+                remark:remark,
+            });
+
+
+            admission = await admission.save();
+            return res.json({ status: "okay" });
+
+
+        } catch (err) {
+            console.log(err.message);
+            return res.json({ status: "error-val", error: "invalid" });
+        }
+    }
+);
+
+app.get( "/api/view_admissions",
+
+    async (req, res) => {
+
+
+        try {
+
+                let students = await Admissions.find();
+                return res.send(students)
+
+
+        } catch (err) {
+            console.log(err);
+            res.status(500).send("Server Error");
+        }
+    }
+);
 
 app.listen(PORT, () => {
     console.log("Server is running");
