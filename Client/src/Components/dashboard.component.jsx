@@ -8,19 +8,20 @@ const Dashboard= ()=>{
     let navigate = useNavigate();
 
     const [name, setName] = useState('');
-    const [contact,setContcat] =useState('');
+    const [contact,setContact] =useState('');
     // const [course,setCourse] = useState('');
     const [domain,setDomain]= useState('');
+    const [totalAmount,setTotalAmount] = useState('')
     const [discountAmount,setDiscountAmount]= useState('')
     const [paidAmount,setPaidAmount] = useState('');
     const [dueAmount,setDueAmount] = useState('');
-    const [duePayDate, setDuePaDate] = useState('');
+    const [duePayDate, setDuePayDate] = useState('');
     const [remark, setRemark]= useState('')
 
     async function handleAdmission(event){
         event.preventDefault()
 
-        const response= await fetch("https://api-cwipedia.herokuapp.com/api/user-idea",
+        const response= await fetch("http://localhost:5001/api/user-idea",
             {
                 method:'POST',
                 headers:{
@@ -91,6 +92,8 @@ const Dashboard= ()=>{
                         <div className="col-sm">
                             <div className="form-floating mb-3">
                                 <input type="text" className="form-control" id="floatingInput4" placeholder="20202020230"
+                                     value={name}
+                                       onChange={(e)=> setName(e.target.value)}
                                        required/>
                                 <label htmlFor="floatingInput4">Student Name </label>
                             </div>
@@ -99,6 +102,8 @@ const Dashboard= ()=>{
                         <div className="col-sm">
                             <div className="form-floating mb-3">
                                 <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                                     value={contact}
+                                       onChange={(e)=> setContact(e.target.value)}
                                        required/>
                                 <label htmlFor="floatingInput4">Student Contact Number </label>
                             </div>
@@ -134,6 +139,8 @@ const Dashboard= ()=>{
 
                         <div className="form-floating">
                             <select className="form-select" required id="floatingSelect1"
+                                 value={domain}
+                                    onChange={(e)=> setDomain(e.target.value)}
                                    >
                                 <option value="">Open this select </option>
                                 <option value="IoT">1 </option>
@@ -149,36 +156,48 @@ const Dashboard= ()=>{
                     <div className="col">
                         <div className="form-floating mb-3">
                             <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                                   value={totalAmount}
+                                   onChange={(e)=> setTotalAmount(e.target.value)}
                                    required/>
                             <label htmlFor="floatingInput4">Total Amount </label>
                         </div>
 
                         <div className="form-floating mb-3">
                             <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                                 value={discountAmount}
+                                   onChange={(e)=> setDiscountAmount(e.target.value)}
                                    required/>
                             <label htmlFor="floatingInput4">Discounted Amount </label>
                         </div>
 
                         <div className="form-floating mb-3">
                             <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                                  value={paidAmount}
+                                   onChange={(e)=> setPaidAmount(e.target.value)}
                                    required/>
                             <label htmlFor="floatingInput4">Paid Amount </label>
                         </div>
 
                         <div className="form-floating mb-3">
                             <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                                   value={dueAmount}
+                                   onChange={(e)=> setDueAmount(e.target.value)}
                                    required/>
                             <label htmlFor="floatingInput4">Dues Amount </label>
                         </div>
 
                         <div className="form-floating mb-3">
                             <input type="date" className="form-control" id="floatingInput4" placeholder="20202020230"
+                                   value={duePayDate}
+                                   onChange={(e)=> setDuePayDate(e.target.value)}
                                    required/>
                             <label htmlFor="floatingInput4">Dues Payment Date </label>
                         </div>
 
                         <div className="form-floating mb-3">
                             <textarea className="form-control" placeholder="Leave a comment here" id="remark"
+                                    value={remark}
+                                      onChange={(e)=> setRemark(e.target.value)}
                                       style={{height: 100}}></textarea>
                             <label htmlFor="remark">Remark?</label>
                         </div>
