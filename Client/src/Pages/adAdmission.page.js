@@ -3,15 +3,16 @@ import {  Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Button, Container} from "react-bootstrap";
+import {Button, Container, Toast} from "react-bootstrap";
 import BackbtnComponent from "../Components/backbtn.component";
+import Chips from "react-chips";
 
 const AdAdmission= ()=>{
     let navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [contact,setContact] =useState('');
-    // const [course,setCourse] = useState('');
+    const [course,setCourse] = useState('');
     const [domain,setDomain]= useState('');
     const [totalAmount,setTotalAmount] = useState('')
     const [discountAmount,setDiscountAmount]= useState('')
@@ -58,8 +59,6 @@ const AdAdmission= ()=>{
                     icon:'success',
                     confirmButtonColor: '#5ae4a7'}
             )
-            localStorage.clear();
-            navigate(`/`);
         }
         else if(data.status==='error-val'){
             Swal.fire(
@@ -68,8 +67,6 @@ const AdAdmission= ()=>{
                     icon:'warning',
                     confirmButtonColor: '#5ae4a7'}
             )
-            localStorage.clear();
-            navigate(`/`);
 
         }
         else if(data.status==='error'){
@@ -124,12 +121,16 @@ const AdAdmission= ()=>{
 
                 <div className="row gx-2">
                     <div className="col">
-
                         <div className="row gx-2">
                             <div className="col">
-                                <div className="alert alert-info" role="alert">
-                                    Foundation
-                                </div>
+
+                                <Toast bg="secondary" style={{color:"white"}}>
+                                    <Toast.Body>Foundation</Toast.Body>
+                                </Toast>
+                                <Toast bg="secondary" style={{color:"white"}}>
+                                    <Toast.Body>Foundation</Toast.Body>
+                                </Toast>
+
                             </div>
                             <div className="col">
                                 <div className="alert alert-info" role="alert">
@@ -147,6 +148,8 @@ const AdAdmission= ()=>{
                                 </div>
                             </div>
                         </div>
+
+
 
 
                         <div className="form-floating">

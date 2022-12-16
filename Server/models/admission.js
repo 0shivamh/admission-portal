@@ -15,7 +15,6 @@ const adminssionSchema = new mongoose.Schema({
     },
     discountAmount: {
         type: String,
-        unique: true,
     },
     paidAmount: {
         type: Number,

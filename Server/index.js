@@ -230,6 +230,15 @@ app.get("/api/get_student/:id",  async (req, res) => {
     }
 });
 
+app.post("/api/remove_student/:id",  async (req, res,auth,) => {
+    try {
+        const stud = await Admissions.findByIdAndRemove(req.params.id );
+        return res.json({ status: "okay" });
+    } catch (err) {
+        return res.json({ status: "error" });
+    }
+});
+
 app.listen(PORT, () => {
     console.log("Server is running");
 });

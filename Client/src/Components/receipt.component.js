@@ -25,8 +25,8 @@ const ReceiptComponent = () =>{
 
     return(<>
 
-        <Card  className="shadow m-2">
-            <Card.Body id="printable">
+
+
                 <div className="user"><b>Student Name:</b> {stud.name}</div>
                 <div className="user"><b>Student Contact:</b> {stud.contact}</div>
                 <div className="user"><b>Domain:</b> {stud.domain}</div>
@@ -36,9 +36,10 @@ const ReceiptComponent = () =>{
                 <div className="user"><b>Dues Amount:</b> {stud.dueAmount}</div>
                 <div className="user"><b>Dues Payment Date: </b> {stud.duePayDate}</div>
                 <div className="user"><b> Remark:</b> {stud.remark}</div>
-            </Card.Body>
-            <button className="btn cbtn" >D</button>
-        </Card>
+                <button className="btn cbtn btn-lg"
+                        onClick={() =>  window.print()}>
+                    PRINT
+                </button>
 
         </>)
 }
