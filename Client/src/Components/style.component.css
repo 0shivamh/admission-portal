@@ -13,5 +13,8 @@
     border-radius: 20px;
     /*background-color: #242B2E ;*/
     /*opacity: 0.5;*/
-
+}
+.white-btn{
+    background-color: white !important;
+    color: #03203C !important;
 }

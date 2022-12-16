@@ -40,7 +40,7 @@ const CreatAccount= ()=>{
                     {title:'Registration Successful!',
                         text:'Please login and continue',
                         icon:'success',
-                        confirmButtonColor: '#5ae4a7'}
+                        confirmButtonColor: '#242B2E'}
                 )
                 navigate(`/login`);
                 //to clear all field
@@ -56,7 +56,7 @@ const CreatAccount= ()=>{
                     {title:'Registration Failed!',
                         text:'Password should be minimum 8 character or more',
                         icon:'error',
-                        confirmButtonColor: '#5ae4a7'}
+                        confirmButtonColor: '#242B2E'}
                 )
                 setPsw("")
 
@@ -66,7 +66,7 @@ const CreatAccount= ()=>{
                     {title:'Email Already Registered!',
                         text:'Please check all details!',
                         icon:'error',
-                        confirmButtonColor: '#5ae4a7'}
+                        confirmButtonColor: '#242B2E'}
                 )
                 setEmail("")
             }
@@ -75,7 +75,7 @@ const CreatAccount= ()=>{
                     {title:'Employee Id Already Exist!',
                         text:'Please change it !',
                         icon:'error',
-                        confirmButtonColor: '#5ae4a7'}
+                        confirmButtonColor: '#242B2E'}
                 )
                 setEmp_id("")
             }
@@ -84,7 +84,7 @@ const CreatAccount= ()=>{
                     {title:'Registration Failed!',
                         text:'Please check all details!',
                         icon:'error',
-                        confirmButtonColor: '#5ae4a7'}
+                        confirmButtonColor: '#242B2E'}
                 )
                 setEmp_id("")
                 setName("")

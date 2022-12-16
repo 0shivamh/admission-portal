@@ -1,6 +1,6 @@
 import './App.css';
 import NavbarComponent from "./Components/navbar.component";
-import {BrowserRouter as Router, Routes, Route, Link,} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link, useParams,} from 'react-router-dom';
 import SigninPage from "./Pages/signin.page";
 import FooterComponent from "./Components/footer.component";
 import HomeDashboardComponent from "./Components/HomeDashboard.component";
@@ -9,9 +9,12 @@ import CreatAccount from "./Pages/createAccount.page";
 import Dashboard from "./Components/dashboard.component";
 import Logout from "./Components/logout.component";
 import ViewAdmissionsPage from "./Pages/viewAdmissions.page";
+import AdAdmission from "./Pages/adAdmission.page";
+import ReceiptComponent from "./Components/receipt.component";
 function App() {
     const userAuth = localStorage.getItem('token');
     // console.log(userAuth)
+
     return (
 
 
@@ -37,8 +40,10 @@ function App() {
 
               {/*}*/}
               <Route path="/dashboard" exact element={<Dashboard/>} />
-              <Route path="/viewAdmissions" exact element={<ViewAdmissionsPage/>} />
+              <Route path="/dashboard/admission" exact element={<AdAdmission/>} />
+              <Route path="/dashboard/viewAdmissions" exact element={<ViewAdmissionsPage/>} />
 
+              <Route path="/dashboard/fees_receipt" exact element={<ReceiptComponent/>} />
 
               {/*<Route path=*/}
 

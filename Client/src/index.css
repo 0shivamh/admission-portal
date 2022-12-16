@@ -1,10 +1,20 @@
 .cbtn{
-    background-color: #242B2E;
+    background-color: #242B2E !important;
     color: white;
+    margin: 10px;
 }
 .cbtn:hover{
-    background-color: #03203C;
+    background-color: #03203C !important;
     color: white;
+}
+.ccard{
+    background-color: #03203C !important;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.ccard:hover{
+    color: grey;
 }
 .link-footer{
     color: white;

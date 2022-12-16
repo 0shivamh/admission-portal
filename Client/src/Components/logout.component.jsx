@@ -14,7 +14,7 @@ const Logout = () => {
         Swal.fire(
             {title:'Logout Successful!',
             icon:'success',
-            confirmButtonColor: '#5ae4a7', allowOutsideClick: false,
+            confirmButtonColor: '#242B2E', allowOutsideClick: false,
             allowEscapeKey: false,}
           ).then((result) => {
             if (result.isConfirmed) {
@@ -26,7 +26,7 @@ const Logout = () => {
 
     return(
         <>
-            <button  className="btn cbtn m-2" onClick={handleLogout}>Sign Out</button>
+            <button  className="btn white-btn" onClick={handleLogout}>Sign Out</button>
 
         </>
     )

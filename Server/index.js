@@ -10,7 +10,7 @@ const User = require("./models/user")
 const sgMail = require("@sendgrid/mail");
 const bcrypt = require("bcrypt");
 const Admissions = require("./models/admission")
-
+const PDFDocument = require('pdfkit')
 app.use(cors());
 app.use(express.json());
 
@@ -179,6 +179,29 @@ app.post("/api/submitAdmission",auth,
     }
 );
 
+
+app.get('/generatePDF', async function(req, res, next) {
+    var myDoc = new PDFDocument({bufferPages: true});
+
+    let buffers = [];
+    myDoc.on('data', buffers.push.bind(buffers));
+    myDoc.on('end', () => {
+
+        let pdfData = Buffer.concat(buffers);
+        res.writeHead(200, {
+            'Content-Length': Buffer.byteLength(pdfData),
+            'Content-Type': 'application/pdf',
+            'Content-disposition': 'attachment;filename=test.pdf',})
+            .end(pdfData);
+
+    });
+
+    myDoc.font('Times-Roman')
+        .fontSize(12)
+        .text(`this is a test text`);
+    myDoc.end();
+});
+
 app.get( "/api/view_admissions",
 
     async (req, res) => {
@@ -196,6 +219,16 @@ app.get( "/api/view_admissions",
         }
     }
 );
+
+app.get("/api/get_student/:id",  async (req, res) => {
+    try {
+        const stud = await Admissions.findById(req.params.id );
+        // console.log(stud)
+        res.json(stud);
+    } catch (err) {
+        return res.json({ status: "error-get" });
+    }
+});
 
 app.listen(PORT, () => {
     console.log("Server is running");

@@ -40,12 +40,12 @@ const SigninPage=()=>{
                 {title:'Login Successful!',
                     text:'Please read all Instructions carefully!',
                     icon:'success',
-                    confirmButtonColor: '#5ae4a7',
+                    confirmButtonColor: '#242B2E',
                     allowOutsideClick: false,
                     allowEscapeKey: false}
             ).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.reload(true);
+                    // window.location.reload(true);
                 }
             })
 
@@ -59,7 +59,7 @@ const SigninPage=()=>{
                 {title:'Login Failed!',
                     text:'Please check email or password!',
                     icon:'error',
-                    confirmButtonColor: '#5ae4a7'}
+                    confirmButtonColor: '#242B2E'}
             )
         }
         //to clear all field
