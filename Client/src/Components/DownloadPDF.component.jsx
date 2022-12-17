@@ -5,15 +5,24 @@ import {Card, Col} from "react-bootstrap";
 const DownloadPDFComponent = (props) =>{
     const styles = StyleSheet.create({
         page: {
-            flexDirection: 'row',
-            backgroundColor: '#E4E4E4'
+            // flexDirection: 'row',
+            // backgroundColor: '#E4E4E4'
         },
         section: {
-            fontSize: 11,
-            paddingTop: 30,
-            paddingLeft:60,
-            paddingRight:60,
-            lineHeight: 1.5,
+            fontSize: 12,
+            paddingTop: 10,
+            paddingLeft:10,
+            paddingRight:10,
+        },
+        section1: {
+            fontSize: 16,
+            textAlign: "center",
+        },
+        bor:{
+            borderTopWidth:1,
+            borderColor:"grey",
+            paddingTop: 10,
+            paddingBottom: 10,
         }
     });
 
@@ -43,17 +52,18 @@ const DownloadPDFComponent = (props) =>{
         <Document>
             <Page size="A4" style={styles.page}>
                 <View style={styles.section}>
-
-                    <Text style={styles.section}>Section # {props.name }</Text>
-                    <Text style={styles.section}>Section # {props.contact }</Text>
-                    <Text style={styles.section}>Section # {props.domain }</Text>
-                    <Text style={styles.section}>Section # {props.totalAmount }</Text>
-                    <Text style={styles.section}>Section # {props.discountAmount }</Text>
-                    <Text style={styles.section}>Section # {props.paidAmount }</Text>
-                    <Text style={styles.section}>Section # {props.dueAmount }</Text>
-                    <Text style={styles.section}>Section # {props.duePayDate }</Text>
-                    <Text style={styles.section}>Section # {props.remark }</Text>
-
+                    <Text style={styles.section1}>Fees Receipt</Text>
+                    <Text style={styles.bor}></Text>
+                    <Text style={styles.section}>Student Name: {props.name }</Text>
+                    <Text style={styles.section}>Student Contact: {props.contact }</Text>
+                    <Text style={styles.section}>Domain: {props.domain }</Text>
+                    <Text style={styles.section}>Total Amount: {props.totalAmount }</Text>
+                    <Text style={styles.section}>Discount Amount: {props.discountAmount }</Text>
+                    <Text style={styles.section}>Paid Amount {props.paidAmount }</Text>
+                    <Text style={styles.section}>Dues Amount: {props.dueAmount }</Text>
+                    <Text style={styles.section}>Dues Payment Date: {props.duePayDate }</Text>
+                    <Text style={styles.section}>Remark: {props.remark }</Text>
+                    <Text style={styles.bor}></Text>
                 </View>
             </Page>
         </Document>

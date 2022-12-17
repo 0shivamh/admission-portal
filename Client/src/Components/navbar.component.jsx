@@ -1,7 +1,7 @@
 import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
 import {Link, Navigate, useNavigate} from "react-router-dom";
 import Logout from "./logout.component";
-const NavbarComponent = (props) =>{
+const NavbarComponent = () =>{
 
     const token = localStorage.getItem('token');
 
@@ -24,7 +24,7 @@ const NavbarComponent = (props) =>{
         <>
             <Navbar expand="lg shadow" bg="dark" style={{color:"white"}}>
                 <Container>
-                    <Navbar.Brand style={{color:"white"}} href="" onClick={navigate("/")}>Admission Portal</Navbar.Brand>
+                    <Navbar.Brand style={{color:"white"}} href="" >Admission Portal</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" style={{color:"white"}}>
                         <Nav className="ms-auto mb-2 mb-lg-0 d-fle"  style={{color:"white"}} >

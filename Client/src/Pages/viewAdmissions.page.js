@@ -168,9 +168,6 @@ const ViewAdmissionsPage = ()=>{
             </ListGroup>
         </Container>
 
-
-
-
         </>)
 
 }
