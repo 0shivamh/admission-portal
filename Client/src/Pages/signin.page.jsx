@@ -1,7 +1,6 @@
-import { useState,useEffect } from "react";
+import {useState, useEffect, useReducer} from "react";
 import {  useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
-// import Swal from 'sweetalert2'
 
 const SigninPage=()=>{
 
@@ -11,8 +10,8 @@ const SigninPage=()=>{
     const [psw, setPsw] = useState('');
 
     useEffect(() => {
-
     }, [])
+
 
     async function login(event){
         event.preventDefault()
@@ -29,12 +28,10 @@ const SigninPage=()=>{
                 }),
             })
         const data= await response.json();
-        // console.log(data)
 
         if(data.status==='okay'){
             localStorage.setItem('token',data.user)
             localStorage.setItem('email',email);
-            // localStorage.setItem('user_null',data._id);
 
             Swal.fire(
                 {title:'Login Successful!',
@@ -45,14 +42,9 @@ const SigninPage=()=>{
                     allowEscapeKey: false}
             ).then((result) => {
                 if (result.isConfirmed) {
-                    // window.location.reload(true);
                 }
             })
-
-
             navigate(`/dashboard`);
-
-
         }
         else if(data.status==='error'){
             Swal.fire(
@@ -63,10 +55,8 @@ const SigninPage=()=>{
             )
         }
         //to clear all field
-
         setEmail("");
         setPsw("")
-
     }
 
     return(

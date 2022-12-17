@@ -8,6 +8,7 @@ const Logout = () => {
 
     const handleLogout = ()=>{
         localStorage.clear();
+        sessionStorage.clear();
 
         navigate(`/`);
 
@@ -18,7 +19,6 @@ const Logout = () => {
             allowEscapeKey: false,}
           ).then((result) => {
             if (result.isConfirmed) {
-              window.location.reload(true);
             }
           })
     }

@@ -94,18 +94,16 @@ const ViewAdmissionsPage = ()=>{
     },[])
 
     function downloadReciept(_id) {
-        
+
     }
 
     return(<>
 
 
-        <Container>
+        <Container className="m-2">
             <p className="h3 text-center mt-2">Total Admissions:{len} </p>
 
             <BackbtnComponent/>
-
-
 
             <ListGroup as="ol" numbered>
 
@@ -148,46 +146,26 @@ const ViewAdmissionsPage = ()=>{
                     </Button>
 
                     <Button className="m-2" onClick={()=>{downloadReciept(stud_admissions[id]._id)}} variant="dark" size="sm" title="Download Fees Receipt" >
-                        <Icon.Download />
+                        <PDFDownloadLink document={<DownloadPDFComponent name={stud_admissions[id].name}
+                                                                         contact={stud_admissions[id].contact}
+                                                                         domain={stud_admissions[id].domain}
+                                                                         totalAmount={stud_admissions[id].totalAmount}
+                                                                         discountAmount={stud_admissions[id].discountAmount}
+                                                                         paidAmount={stud_admissions[id].paidAmount}
+                                                                         dueAmount={stud_admissions[id].dueAmount}
+                                                                         duePayDate={stud_admissions[id].duePayDate}
+                                                                         remark={stud_admissions[id].remark}
+
+                        />} fileName={stud_admissions[id].name+"-Fees-Receipt.pdf"}>
+                            {({ blob, url, loading, error }) => (loading ? 'Loading document...' :  <Icon.Download style={{color:"white"}} />)}
+                        </PDFDownloadLink>
+
                     </Button>
-
-
 
                 </ListGroup.Item>
 
                 ))}
             </ListGroup>
-
-            {/*<Row xs={2}>*/}
-
-            {/*    {stud_admissions.map((e) => (*/}
-
-
-
-            {/*            <Col >*/}
-            {/*            <Card  className="shadow m-2">*/}
-            {/*                <Card.Body id="printable">*/}
-            {/*                    <div className="user"><b>Student Name:</b> {e.name}</div>*/}
-            {/*                    <div className="user"><b>Student Contact:</b> {e.contact}</div>*/}
-            {/*                    <div className="user"><b>Domain:</b> {e.domain}</div>*/}
-            {/*                    <div className="user"><b>Total Amount:</b> {e.totalAmount}</div>*/}
-            {/*                    <div className="user"><b>Discount Amount:</b> {e.paidAmount}</div>*/}
-            {/*                    <div className="user"><b>Paid Amount:</b> {e.paidAmount}</div>*/}
-            {/*                    <div className="user"><b>Dues Amount:</b> {e.dueAmount}</div>*/}
-            {/*                    <div className="user"><b>Dues Payment Date: </b> {e.duePayDate}</div>*/}
-            {/*                    <div className="user"><b> Remark:</b> {e.remark}</div>*/}
-            {/*                </Card.Body>*/}
-            {/*                <button className="btn cbtn" >D</button>*/}
-            {/*            </Card>*/}
-            {/*                <PDFDownloadLink document={<DownloadPDFComponent />} fileName="somename.pdf">*/}
-            {/*                    {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}*/}
-            {/*                </PDFDownloadLink>*/}
-            {/*            </Col>*/}
-            {/*        ))}*/}
-            {/*</Row>*/}
-
-
-
         </Container>
 
 

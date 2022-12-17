@@ -1,6 +1,6 @@
 import './App.css';
 import NavbarComponent from "./Components/navbar.component";
-import {BrowserRouter as Router, Routes, Route, Link, useParams,} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link, useParams, Outlet, Navigate,} from 'react-router-dom';
 import SigninPage from "./Pages/signin.page";
 import FooterComponent from "./Components/footer.component";
 import HomeDashboardComponent from "./Components/HomeDashboard.component";
@@ -12,41 +12,33 @@ import ViewAdmissionsPage from "./Pages/viewAdmissions.page";
 import AdAdmission from "./Pages/adAdmission.page";
 import ReceiptComponent from "./Components/receipt.component";
 import EditAdmissionPage from "./Pages/editAdmission.page";
+import Auth from "./auth";
 function App() {
-    const userAuth = localStorage.getItem('token');
-    // console.log(userAuth)
-
     return (
-
-
       <div className="App">
-
-
-
         <Router>
 
           <header>
-            <NavbarComponent/>
+            <NavbarComponent />
           </header>
 
           <Routes>
 
                 <Route path="/" exact element={<HomeDashboardComponent/>}/>
                 <Route path="/signin" exact element={<SigninPage/>}/>
-              <Route path="/register" exact element={<CreatAccount/>} />
+                <Route path="/register" exact element={<CreatAccount/>} />
 
               {/*private routes*/}
-              {/*{*/}
-              {/*    // userAuth ? <Route path="/" exact element={<HomeDashboardComponent/>}/>:*/}
 
-              {/*}*/}
-              <Route path="/dashboard" exact element={<Dashboard/>} />
-              <Route path="/dashboard/admission" exact element={<AdAdmission/>} />
-              <Route path="/dashboard/viewAdmissions" exact element={<ViewAdmissionsPage/>} />
-              <Route path="/dashboard/editAdmission" exact element={<EditAdmissionPage/>} />
-              <Route path="/dashboard/fees_receipt" exact element={<ReceiptComponent/>} />
+              <Route path="/" exact element={<Auth/>} >
 
-              {/*<Route path=*/}
+                  <Route path="dashboard" exact element={<Dashboard/>} />
+                  <Route path="dashboard/admission" exact element={<AdAdmission/>} />
+                  <Route path="dashboard/viewAdmissions" exact element={<ViewAdmissionsPage/>} />
+                  <Route path="dashboard/editAdmission" exact element={<EditAdmissionPage/>} />
+                  <Route path="dashboard/fees_receipt" exact element={<ReceiptComponent/>} />
+
+              </Route>
 
               <Route path="*"  element={<PageNotFound />} />
           </Routes>

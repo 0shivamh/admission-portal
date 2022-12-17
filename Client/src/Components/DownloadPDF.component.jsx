@@ -2,7 +2,7 @@ import {Document, Page, StyleSheet, Text, View} from "@react-pdf/renderer";
 import {useEffect, useState} from "react";
 import {Card, Col} from "react-bootstrap";
 
-const DownloadPDFComponent = () =>{
+const DownloadPDFComponent = (props) =>{
     const styles = StyleSheet.create({
         page: {
             flexDirection: 'row',
@@ -44,9 +44,15 @@ const DownloadPDFComponent = () =>{
             <Page size="A4" style={styles.page}>
                 <View style={styles.section}>
 
-                    {stud_admissions.map((e) => (
-                        <Text style={styles.section}>Section # {e.name }</Text>
-                    ))}
+                    <Text style={styles.section}>Section # {props.name }</Text>
+                    <Text style={styles.section}>Section # {props.contact }</Text>
+                    <Text style={styles.section}>Section # {props.domain }</Text>
+                    <Text style={styles.section}>Section # {props.totalAmount }</Text>
+                    <Text style={styles.section}>Section # {props.discountAmount }</Text>
+                    <Text style={styles.section}>Section # {props.paidAmount }</Text>
+                    <Text style={styles.section}>Section # {props.dueAmount }</Text>
+                    <Text style={styles.section}>Section # {props.duePayDate }</Text>
+                    <Text style={styles.section}>Section # {props.remark }</Text>
 
                 </View>
             </Page>
