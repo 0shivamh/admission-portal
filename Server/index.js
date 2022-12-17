@@ -149,10 +149,7 @@ app.post("/api/submitAdmission",auth,
 
         let user = await User.findOne({ email });
 
-
-
         const {  name,contact, domain,   totalAmount,  discountAmount, paidAmount,  dueAmount, duePayDate,remark, } = req.body;
-
 
         try {
             let admission = new Admissions({
@@ -167,14 +164,53 @@ app.post("/api/submitAdmission",auth,
                 remark:remark,
             });
 
-
             admission = await admission.save();
             return res.json({ status: "okay" });
-
 
         } catch (err) {
             console.log(err.message);
             return res.json({ status: "error-val", error: "invalid" });
+        }
+    }
+);
+
+app.post("/api/editAdmission/:id",auth,
+    async (req, res) => {
+
+        const email = req.headers['email_id']
+
+        let user = await Admissions.findById(req.params.id );
+        const {  name,contact, domain,   totalAmount,  discountAmount, paidAmount,  dueAmount, duePayDate,remark, } = req.body;
+        try {
+
+            if (!user) {
+                return res.json({ status: "error", error: "invalid" });
+            }
+            else {
+
+                Admissions.findByIdAndUpdate(req.params.id, {
+                        name:name,
+                        contact:contact,
+                        domain:domain,
+                        totalAmount:totalAmount,
+                        discountAmount:discountAmount,
+                        paidAmount:paidAmount,
+                        dueAmount:dueAmount,
+                        duePayDate:duePayDate,
+                        remark:remark,
+                    },
+                    function (err, docs) {
+                        if (err){
+                            return res.json({ status: "error" });
+                        }
+                        else{
+                            return res.json({ status: "okay" });
+                        }
+                    });
+            }
+        } catch (err) {
+            console.log(err);
+            res.status(500).send("Server Error");
         }
     }
 );
@@ -205,14 +241,9 @@ app.get('/generatePDF', async function(req, res, next) {
 app.get( "/api/view_admissions",
 
     async (req, res) => {
-
-
         try {
-
                 let students = await Admissions.find();
                 return res.send(students)
-
-
         } catch (err) {
             console.log(err);
             res.status(500).send("Server Error");

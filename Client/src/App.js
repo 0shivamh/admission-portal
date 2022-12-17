@@ -11,6 +11,7 @@ import Logout from "./Components/logout.component";
 import ViewAdmissionsPage from "./Pages/viewAdmissions.page";
 import AdAdmission from "./Pages/adAdmission.page";
 import ReceiptComponent from "./Components/receipt.component";
+import EditAdmissionPage from "./Pages/editAdmission.page";
 function App() {
     const userAuth = localStorage.getItem('token');
     // console.log(userAuth)
@@ -42,7 +43,7 @@ function App() {
               <Route path="/dashboard" exact element={<Dashboard/>} />
               <Route path="/dashboard/admission" exact element={<AdAdmission/>} />
               <Route path="/dashboard/viewAdmissions" exact element={<ViewAdmissionsPage/>} />
-
+              <Route path="/dashboard/editAdmission" exact element={<EditAdmissionPage/>} />
               <Route path="/dashboard/fees_receipt" exact element={<ReceiptComponent/>} />
 
               {/*<Route path=*/}

@@ -6,7 +6,7 @@ import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer'
 
 import BackbtnComponent from "../Components/backbtn.component";
 import DownloadPDFComponent from "../Components/DownloadPDF.component";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 import * as Icon from 'react-bootstrap-icons';
 
@@ -93,12 +93,19 @@ const ViewAdmissionsPage = ()=>{
         getAdmissionDetails()
     },[])
 
+    function downloadReciept(_id) {
+        
+    }
+
     return(<>
 
 
         <Container>
             <p className="h3 text-center mt-2">Total Admissions:{len} </p>
+
             <BackbtnComponent/>
+
+
 
             <ListGroup as="ol" numbered>
 
@@ -111,20 +118,37 @@ const ViewAdmissionsPage = ()=>{
                     <div className="ms-2 me-auto">
                         <p>Name: {e.name}</p>
                     </div>
-                    <Button className="m-2" variant="dark" size="sm" onClick={ ()=> {
+                    <Button title="View" className="m-2" variant="dark" size="sm" onClick={ ()=> {
                          localStorage.setItem("stud_id",e._id)
-                        window.open("/dashboard/fees_receipt","height=200,width=200")
+                        // window.open("/dashboard/fees_receipt","height=200,width=200")
+                        navigate("/dashboard/fees_receipt")
                         // navigate("")
                     }}>
                         <Icon.EyeFill />
                     </Button>
 
-                    <Button className="m-2" variant="dark" size="sm" >
+                    <Button className="m-2" variant="dark" size="sm"  title="Edit details"
+                    onClick={()=>{
+                        localStorage.setItem("stud_id",e._id)
+                        sessionStorage.setItem("name", e.name);
+                        sessionStorage.setItem("contact", e.contact);
+                        sessionStorage.setItem("totalAmount", e.totalAmount);
+                        sessionStorage.setItem("discountAmount", e.discountAmount);
+                        sessionStorage.setItem("paidAmount", e.paidAmount);
+                        sessionStorage.setItem("dueAmount", e.dueAmount);
+                        sessionStorage.setItem("duePayDate", e.duePayDate);
+                        sessionStorage.setItem("remark", e.remark);
+                        navigate("/dashboard/editAdmission")}
+                    }>
                         <Icon.PencilFill />
                     </Button>
 
-                    <Button className="m-2" onClick={()=>{removeAdmission(stud_admissions[id]._id)}} variant="dark" size="sm" >
+                    <Button className="m-2" onClick={()=>{removeAdmission(stud_admissions[id]._id)}} variant="dark" size="sm" title="Delete" >
                         <Icon.TrashFill />
+                    </Button>
+
+                    <Button className="m-2" onClick={()=>{downloadReciept(stud_admissions[id]._id)}} variant="dark" size="sm" title="Download Fees Receipt" >
+                        <Icon.Download />
                     </Button>
 
 
