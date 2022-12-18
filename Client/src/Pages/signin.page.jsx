@@ -2,6 +2,7 @@ import {useState, useEffect, useReducer} from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import Swal from "sweetalert2";
 import {Container} from "react-bootstrap";
+import * as Icon from "react-bootstrap-icons";
 
 const SigninPage=()=>{
 
@@ -66,6 +67,7 @@ const SigninPage=()=>{
             <Container className="d-flex justify-content-center">
             <div className="d-inline-flex p-2  text-center mt-4 ">
                 <form className="c-form"  onSubmit={login}>
+                    <span className="display-6"><Icon.Person/> </span>
                     <p className="h3">Admission Officer Login</p>
                     <div className="form-floating mb-3">
                         <input type="email" className="form-control" id="floatingInput" placeholder="abc@example.com"

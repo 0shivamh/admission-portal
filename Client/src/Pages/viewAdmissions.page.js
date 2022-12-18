@@ -17,6 +17,8 @@ const ViewAdmissionsPage = ()=>{
     const [admissionID,setAdmissionId]= useState('')
 
     const [stud_admissions, setStud_Admissions] = useState([]);
+    const [query, setQuery] = useState("")
+
     const [len, setLen] = useState();
     let tmp;
     const navigate = useNavigate();
@@ -97,7 +99,16 @@ const ViewAdmissionsPage = ()=>{
         <div className="m-4">
 
             <BackbtnComponent/>
-            <p className="h5  mt-2">Total Admissions:{len} </p>
+            <Row>
+                <Col>
+                    <p className="h5  mt-2">Total Admissions:{len} </p>
+                </Col>
+                <Col sm={4} style={{textAlign:"right"}}>
+                    <form className="d-flex" role="search">
+                        <input className="form-control me-2 mb-2" type="search" onChange={event => setQuery(event.target.value)} placeholder="Search" aria-label="Search"/>
+                    </form>
+                </Col>
+            </Row>
 
             <Table striped bordered hover variant="dark" className="shadow">
                 <thead>
@@ -110,7 +121,14 @@ const ViewAdmissionsPage = ()=>{
                 </tr>
                 </thead>
                 <tbody>
-                {stud_admissions.map((e,id) => (
+            {
+                stud_admissions.filter(admission => {
+                    if (query === '') {
+                        return admission;
+                    } else if (admission.name.toLowerCase().includes(query.toLowerCase())) {
+                        return admission;
+                    }
+                }).map((e, id) => (
                     <tr>
                         <td>{id+1}</td>
                         <td>{e.name}</td>
@@ -166,7 +184,13 @@ const ViewAdmissionsPage = ()=>{
 
                         </td>
                     </tr>
-                ))}
+
+                ))
+            }
+
+                {/*{stud_admissions.map((e,id) => (*/}
+                {/*    */}
+                {/*))}*/}
                 </tbody>
             </Table>
 

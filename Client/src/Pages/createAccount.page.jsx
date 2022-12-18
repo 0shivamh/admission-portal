@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Container} from "react-bootstrap";
+import * as Icon from 'react-bootstrap-icons';
 
 const CreatAccount= ()=>{
     let navigate = useNavigate();
@@ -106,6 +107,7 @@ const CreatAccount= ()=>{
         <div className="d-inline-flex p-2  text-center mt-4  ">
 
             <form className="c-form" onSubmit={registerUser} >
+                <span className="display-6"><Icon.Person/> </span>
                 <p className="display-5">Create Account</p>
 
                     <div className="form-floating mb-3">
