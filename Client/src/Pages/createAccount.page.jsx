@@ -3,6 +3,7 @@ import {  Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Container} from "react-bootstrap";
 
 const CreatAccount= ()=>{
     let navigate = useNavigate();
@@ -100,11 +101,12 @@ const CreatAccount= ()=>{
 
     return(<>
         {/* was-validated */}
-        <div className="login page-bg container text-center mt-4 ">
+        <Container className="d-flex justify-content-center">
+        <div className="d-inline-flex p-2  text-center mt-4  ">
 
-            <p className="display-5">Create Account</p>
+            <form className="c-form" onSubmit={registerUser} >
+                <p className="display-5">Create Account</p>
 
-            <form className="center loginform" onSubmit={registerUser} >
                     <div className="form-floating mb-3">
                         <input type="text" className="form-control" id="floatingInput4" placeholder="20202020230"
                                value={emp_id}
@@ -151,10 +153,11 @@ const CreatAccount= ()=>{
 
                     <button type="submit" className="btn cbtn mt-2" >Register</button>
                     <p className="white">Already have an account?
-                        <Link to="/login" className="white"> Log In</Link></p>
+                        <Link to="/signin" className="white"> Sign In</Link></p>
                 </form>
 
         </div>
+        </Container>
         <ToastContainer />
     </>)
 }

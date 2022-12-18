@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
-import {Card, Col, Container, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Row} from "react-bootstrap";
 import BackbtnComponent from "./backbtn.component";
+import {PDFDownloadLink} from "@react-pdf/renderer";
+import DownloadPDFComponent from "./DownloadPDF.component";
+import * as Icon from "react-bootstrap-icons";
 
 const ReceiptComponent = () =>{
     const [stud, setStud] = useState([]);
@@ -31,7 +34,6 @@ const ReceiptComponent = () =>{
                     <hr/>
                     <p className="h4 ">Fess Receipt</p>
                     <hr/>
-
                     <Row xs={2}>
                         <Col sm={3}>
                             <div className="user"><b>Student Name:</b> {stud.name}</div>
@@ -46,21 +48,10 @@ const ReceiptComponent = () =>{
                             <div className="user"><b>Dues Amount:</b> {stud.dueAmount}</div>
                             <div className="user"><b>Dues Payment Date: </b> {stud.duePayDate}</div>
                             <div className="user"><b> Remark:</b> {stud.remark}</div>
-
                         </Col>
-                        <button className="btn cbtn btn-lg"
-                                onClick={() =>  window.print()}>
-                            PRINT
-                        </button>
                     </Row>
-
-
-
-
+                    <hr/>
                 </Container>
-
-
-
         </>)
 }
 export default ReceiptComponent;

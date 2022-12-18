@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {Badge, Button, Card, Col, Container, ListGroup, Row} from "react-bootstrap";
+import {Badge, Button, Card, Col, Container, ListGroup, Row, Table} from "react-bootstrap";
 import Swal from "sweetalert2";
 import print from 'ink-html'
 import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer'
@@ -81,13 +81,6 @@ const ViewAdmissionsPage = ()=>{
 
     }
 
-    async function updateAdmission(stud_id){
-        // let =admissionID
-        console.log(stud_id)
-
-
-
-    }
 
     useEffect(() => {
         getAdmissionDetails()
@@ -100,73 +93,85 @@ const ViewAdmissionsPage = ()=>{
     return(<>
 
 
-        <Container className="m-2">
-            <p className="h3 text-center mt-2">Total Admissions:{len} </p>
+        <div className="m-4">
 
             <BackbtnComponent/>
+            <p className="h5  mt-2">Total Admissions:{len} </p>
 
-            <ListGroup as="ol" numbered>
+            <Table striped bordered hover variant="dark" className="shadow">
+                <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Student Name</th>
+                    <th>Student Contact</th>
+                    <th>Domain</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
 
-            {stud_admissions.map((e,id) => (
+                {stud_admissions.map((e,id) => (
+                    <tr>
+                        <td>{id+1}</td>
+                        <td>{e.name}</td>
+                        <td>{e.contact}</td>
+                        <td>{e.domain}</td>
+                        <td style={{textAlign:"right"}}>
 
-                <ListGroup.Item key="n"
-                    as="li"
-                    className="d-flex justify-content-between align-items-start"
-                >
-                    <div className="ms-2 me-auto">
-                        <p>Name: {e.name}</p>
-                    </div>
-                    <Button title="View" className="m-2" variant="dark" size="sm" onClick={ ()=> {
-                         localStorage.setItem("stud_id",e._id)
-                        // window.open("/dashboard/fees_receipt","height=200,width=200")
-                        navigate("/dashboard/fees_receipt")
-                        // navigate("")
-                    }}>
-                        <Icon.EyeFill />
-                    </Button>
+                            <Button title="View" className="op-btn m-2" variant="light" size="sm" onClick={ ()=> {
+                                localStorage.setItem("stud_id",e._id)
+                                // window.open("/dashboard/fees_receipt","height=200,width=200")
+                                navigate("/dashboard/fees_receipt")
+                                // navigate("")
+                            }}>
+                                <Icon.EyeFill />
+                            </Button>
 
-                    <Button className="m-2" variant="dark" size="sm"  title="Edit details"
-                    onClick={()=>{
-                        localStorage.setItem("stud_id",e._id)
-                        sessionStorage.setItem("name", e.name);
-                        sessionStorage.setItem("contact", e.contact);
-                        sessionStorage.setItem("totalAmount", e.totalAmount);
-                        sessionStorage.setItem("discountAmount", e.discountAmount);
-                        sessionStorage.setItem("paidAmount", e.paidAmount);
-                        sessionStorage.setItem("dueAmount", e.dueAmount);
-                        sessionStorage.setItem("duePayDate", e.duePayDate);
-                        sessionStorage.setItem("remark", e.remark);
-                        navigate("/dashboard/editAdmission")}
-                    }>
-                        <Icon.PencilFill />
-                    </Button>
+                            <Button className="op-btn m-2" variant="light" size="sm"  title="Edit details"
+                                    onClick={()=>{
+                                        localStorage.setItem("stud_id",e._id)
+                                        sessionStorage.setItem("name", e.name);
+                                        sessionStorage.setItem("contact", e.contact);
+                                        sessionStorage.setItem("totalAmount", e.totalAmount);
+                                        sessionStorage.setItem("discountAmount", e.discountAmount);
+                                        sessionStorage.setItem("paidAmount", e.paidAmount);
+                                        sessionStorage.setItem("dueAmount", e.dueAmount);
+                                        sessionStorage.setItem("duePayDate", e.duePayDate);
+                                        sessionStorage.setItem("remark", e.remark);
+                                        navigate("/dashboard/editAdmission")}
+                                    }>
+                                <Icon.PencilFill />
+                            </Button>
 
-                    <Button className="m-2" onClick={()=>{removeAdmission(stud_admissions[id]._id)}} variant="dark" size="sm" title="Delete" >
-                        <Icon.TrashFill />
-                    </Button>
+                            <Button className="op-btn m-2" onClick={()=>{removeAdmission(stud_admissions[id]._id)}} variant="light" size="sm" title="Delete" >
+                                <Icon.TrashFill />
+                            </Button>
 
-                    <Button className="m-2" onClick={()=>{downloadReciept(stud_admissions[id]._id)}} variant="dark" size="sm" title="Download Fees Receipt" >
-                        <PDFDownloadLink document={<DownloadPDFComponent name={stud_admissions[id].name}
-                                                                         contact={stud_admissions[id].contact}
-                                                                         domain={stud_admissions[id].domain}
-                                                                         totalAmount={stud_admissions[id].totalAmount}
-                                                                         discountAmount={stud_admissions[id].discountAmount}
-                                                                         paidAmount={stud_admissions[id].paidAmount}
-                                                                         dueAmount={stud_admissions[id].dueAmount}
-                                                                         duePayDate={stud_admissions[id].duePayDate}
-                                                                         remark={stud_admissions[id].remark}
+                            <Button className="op-btn m-2" onClick={()=>{downloadReciept(stud_admissions[id]._id)}} variant="light" size="sm" title="Download Fees Receipt" >
+                                <PDFDownloadLink document={<DownloadPDFComponent name={stud_admissions[id].name}
+                                                                                 contact={stud_admissions[id].contact}
+                                                                                 domain={stud_admissions[id].domain}
+                                                                                 totalAmount={stud_admissions[id].totalAmount}
+                                                                                 discountAmount={stud_admissions[id].discountAmount}
+                                                                                 paidAmount={stud_admissions[id].paidAmount}
+                                                                                 dueAmount={stud_admissions[id].dueAmount}
+                                                                                 duePayDate={stud_admissions[id].duePayDate}
+                                                                                 remark={stud_admissions[id].remark}
 
-                        />} fileName={stud_admissions[id].name+"-Fees-Receipt.pdf"}>
-                            {({ blob, url, loading, error }) => (loading ? 'Loading document...' :  <Icon.Download style={{color:"white"}} />)}
-                        </PDFDownloadLink>
+                                />} fileName={stud_admissions[id].name+"-Fees-Receipt.pdf"}>
+                                    {({ blob, url, loading, error }) => (loading ? 'Loading document...' :  <Icon.Download style={{color:"black"}} />)}
+                                </PDFDownloadLink>
 
-                    </Button>
+                            </Button>
 
-                </ListGroup.Item>
-
+                        </td>
+                    </tr>
                 ))}
-            </ListGroup>
-        </Container>
+
+                </tbody>
+            </Table>
+
+        </div>
 
         </>)
 

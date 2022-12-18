@@ -13,7 +13,9 @@ import AdAdmission from "./Pages/adAdmission.page";
 import ReceiptComponent from "./Components/receipt.component";
 import EditAdmissionPage from "./Pages/editAdmission.page";
 import Auth from "./auth";
+import NoAuth from "./noauth";
 function App() {
+
     return (
       <div className="App">
         <Router>
@@ -24,9 +26,11 @@ function App() {
 
           <Routes>
 
-                <Route path="/" exact element={<HomeDashboardComponent/>}/>
-                <Route path="/signin" exact element={<SigninPage/>}/>
-                <Route path="/register" exact element={<CreatAccount/>} />
+              <Route path="/" exact element={<NoAuth/>} >
+                  <Route path="" exact element={<HomeDashboardComponent/>}/>
+                  <Route path="signin" exact element={<SigninPage/>}/>
+                  <Route path="register" exact element={<CreatAccount/>} />
+              </Route>
 
               {/*private routes*/}
 

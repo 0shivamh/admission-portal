@@ -1,6 +1,7 @@
 import {useState, useEffect, useReducer} from "react";
 import {  useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
+import {Container} from "react-bootstrap";
 
 const SigninPage=()=>{
 
@@ -35,7 +36,7 @@ const SigninPage=()=>{
 
             Swal.fire(
                 {title:'Login Successful!',
-                    text:'Please read all Instructions carefully!',
+                    text:'Welcome to admission portal!',
                     icon:'success',
                     confirmButtonColor: '#242B2E',
                     allowOutsideClick: false,
@@ -61,9 +62,10 @@ const SigninPage=()=>{
 
     return(
         <>
-            <div className="login container page-bg text-center mt-4">
-                <form className="center loginform"  onSubmit={login}>
-                    <p className="display-5">Admission Officer Login</p>
+            <Container className="d-flex justify-content-center">
+            <div className="d-inline-flex p-2  text-center mt-4 ">
+                <form className="c-form"  onSubmit={login}>
+                    <p className="h3">Admission Officer Login</p>
                     <div className="form-floating mb-3">
                         <input type="email" className="form-control" id="floatingInput" placeholder="abc@example.com"
                                value={email}
@@ -76,9 +78,10 @@ const SigninPage=()=>{
                                onChange={(e)=> setPsw(e.target.value)} />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
-                    <button type="submit" className="btn cbtn mt-2 mb-2" >Login</button>
+                    <button type="submit" className="btn cbtn mt-2 mb-2" >Sign In</button>
                 </form>
             </div>
+            </Container>
         </>
     )
 }

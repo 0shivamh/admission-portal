@@ -11,7 +11,7 @@ import webcamRef from "react-chips/docs/static/manager.958779b5fb60b2065863.bund
 const AdAdmission= ()=>{
     let navigate = useNavigate();
 
-    const [profile, setProfile] = useState('');
+    const [profile, setProfile] = useState('https://www.w3schools.com/w3images/avatar2.png');
     const [name, setName] = useState('');
     const [contact,setContact] =useState('');
     const [course,setCourse] = useState('');
@@ -83,50 +83,61 @@ const AdAdmission= ()=>{
         }
 
     }
+
     const webcamRef = useRef(null);
-    const [imgSrc, setImgSrc] = useState(null);
+
     const capture = useCallback(() => {
+        // alert("hi")
         const imageSrc = webcamRef.current.getScreenshot();
-        setImgSrc(imageSrc);
-    }, [webcamRef, setImgSrc]);
+        setProfile(imageSrc);
+    }, [webcamRef, setProfile]);
 
     return(<>
         {/* was-validated */}
-        <p className="display-5 text-center mt-4">Admission Dashboard</p>
+        <p className="h3 text-center mt-4">Add Admission</p>
+        <hr/>
         <Container>
             <BackbtnComponent/>
         </Container>
 
-        <div className="login page-bg container text-center mt-4" onSubmit={handleAdmission}>
+        <div className="login page-bg container text-center mt-4" >
+
+            <form onSubmit={handleAdmission}>
+                <div className="row  " >
+
+                    <div className="col-2 d-flex align-items-center mb-2  " >
+                        <img className="img-thumbnail cimg rounded float-start " src={profile} />
+                    </div>
+                    <div className="col-3 d-flex align-items-center">
+                        <div className="input-group mb-2">
+                            {/*<label id="idcard" className="form-label ">Take a Profile</label>*/}
+                            <div className="input-group ">
+                                <Webcam
+                                    audio={false}
+                                    ref={webcamRef}
+                                    height={140}
+                                    screenshotFormat="image/jpeg"
+                                    minScreenshotWidth={1040}
+                                    minScreenshotHeight={140}
+                                />
+                                <button onClick={capture} className="btn btn-secondary">Camera</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className="col-3 d-flex align-items-center">
+                        <div className="input-group mb-2">
+                            <label id="idcard" className="form-label ">Choose Profile</label>
+                            <div className="input-group ">
+                                <input type="file" name="idcard"  className="form-control"
+                                       onChange={(e) => setProfile(URL.createObjectURL(e.target.files[0]))}   />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
 
-
-            <form className="center "  >
-
-                {/*<div className="row  gx-2">*/}
-                {/*    <div className="col-sm">*/}
-                {/*        <img src={profile} />*/}
-                {/*    </div>*/}
-                {/*    <div className="col-sm">*/}
-                {/*        <div className="input-group mt-3">*/}
-                {/*            <label id="idcard" className="form-label ">Choose Profile</label>*/}
-                {/*            <div className="input-group ">*/}
-                {/*                <input type="file" name="idcard"  className="form-control"*/}
-                {/*                       onChange={(e) => setProfile(e.target.files[0])}  required />*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-                <Webcam
-                    audio={false}
-                    ref={webcamRef}
-                    screenshotFormat="image/jpeg"
-                    minScreenshotWidth={80}
-                    minScreenshotHeight={80}
-                />
-                <button onClick={capture}>Capture Photo</button>
-                {imgSrc && <img src={imgSrc} alt="img" className="img-fluid " />}
 
                 <div className="row  gx-2">
                     <div className="col-sm">
@@ -179,9 +190,6 @@ const AdAdmission= ()=>{
                                 </div>
                             </div>
                         </div>
-
-
-
 
                         <div className="form-floating">
                             <select className="form-select" required id="floatingSelect1"
@@ -252,10 +260,11 @@ const AdAdmission= ()=>{
                 </div>
 
 
-                <button type="submit" className="btn cbtn mt-2 mb-2" >Add</button>
+                <button type="submit" className="btn cbtn mt-2 mb-2 btn-lg" >Add</button>
+                <Link to="/viewAdmissions" className="btn cbtn mt-2  btn-lg mb-2">View</Link>
+
             </form>
 
-            <Link to="/viewAdmissions" className="btn cbtn mt-2 mb-2">View</Link>
 
         </div>
         <ToastContainer />

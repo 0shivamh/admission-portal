@@ -20,6 +20,3 @@ const Auth =() =>{
 }
 export default Auth;
 
-export class auth {
-
-}

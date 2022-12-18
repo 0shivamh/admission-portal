@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Button, Card, Col, Container, Row} from "react-bootstrap";
 import BackbtnComponent from "./backbtn.component";
+import * as Icon from "react-bootstrap-icons";
 
 const Dashboard= ()=>{
     const navigate = useNavigate();
@@ -13,17 +14,13 @@ const Dashboard= ()=>{
     return(<>
         {/* was-validated */}
        <Container >
-
-
-           <p className="h3 text-center">Dashboard</p>
-
+           <p className="h4 m-2 ">Dashboard</p>
            <BackbtnComponent/>
-
            <Row xs={2} className="text-center">
                <Col>
-                   <Card  className="shadow m-2">
+                   <Card v className="shadow m-2">
                        <Link to="/dashboard/admission" className="card-body ccard" >
-                           Add Admission
+                            Add Admission
                        </Link>
                    </Card>
                </Col>
