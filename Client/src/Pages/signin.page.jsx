@@ -62,6 +62,7 @@ const SigninPage=()=>{
 
     return(
         <>
+            <div className="bg-home">
             <Container className="d-flex justify-content-center">
             <div className="d-inline-flex p-2  text-center mt-4 ">
                 <form className="c-form"  onSubmit={login}>
@@ -78,10 +79,11 @@ const SigninPage=()=>{
                                onChange={(e)=> setPsw(e.target.value)} />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
-                    <button type="submit" className="btn cbtn mt-2 mb-2" >Sign In</button>
+                    <button type="submit" className="btn white-btn mt-2 mb-2" >Sign In</button>
                 </form>
             </div>
             </Container>
+            </div>
         </>
     )
 }

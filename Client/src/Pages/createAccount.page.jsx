@@ -101,6 +101,7 @@ const CreatAccount= ()=>{
 
     return(<>
         {/* was-validated */}
+        <div className="bg-home">
         <Container className="d-flex justify-content-center">
         <div className="d-inline-flex p-2  text-center mt-4  ">
 
@@ -158,6 +159,7 @@ const CreatAccount= ()=>{
 
         </div>
         </Container>
+        </div>
         <ToastContainer />
     </>)
 }
