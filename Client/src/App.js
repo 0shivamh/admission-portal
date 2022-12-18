@@ -7,7 +7,6 @@ import HomeDashboardComponent from "./Components/HomeDashboard.component";
 import PageNotFound from "./Components/404.component";
 import CreatAccount from "./Pages/createAccount.page";
 import Dashboard from "./Components/dashboard.component";
-import Logout from "./Components/logout.component";
 import ViewAdmissionsPage from "./Pages/viewAdmissions.page";
 import AdAdmission from "./Pages/adAdmission.page";
 import ReceiptComponent from "./Components/receipt.component";
@@ -19,7 +18,6 @@ function App() {
     return (
       <div className="App">
         <Router>
-
           <header>
             <NavbarComponent />
           </header>

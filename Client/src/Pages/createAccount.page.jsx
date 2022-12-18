@@ -152,9 +152,8 @@ const CreatAccount= ()=>{
                         <label htmlFor="floatingInput5">Designation</label>
                     </div>
 
-                    <button type="submit" className="btn cbtn mt-2" >Register</button>
-                    <p className="white">Already have an account?
-                        <Link to="/signin" className="white"> Sign In</Link></p>
+                    <button type="submit" className="btn cbtn mt-2" >Register</button><br/>
+                        <Link to="/signin" style={{color:"white"}}>Already have an account? Sign In</Link>
                 </form>
 
         </div>

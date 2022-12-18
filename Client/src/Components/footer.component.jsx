@@ -1,13 +1,20 @@
 import {Container, Row, Col, Image} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import "./style.component.css"
+import logo from "../Animations/unnamed (1).png";
 const FooterComponent =()=>{
     return(<>
         <div className="foot noprint">
         <Container style={{marginTop:"60px"}} >
             <Row>
                 <Col>
-                    <p className="h5"><b>Admission Portal</b></p>
+                    <p className="h5"><b><img
+                        src={logo}
+                        width="30"
+                        height="30"
+                        className="d-inline-block align-top"
+                        alt="BigBooster"
+                    /> Admission Portal</b></p>
                     <p>Smart way handle your data</p>
                 </Col>
                 <Col >
@@ -30,7 +37,13 @@ const FooterComponent =()=>{
 
                 </Col>
                 <hr className="mt-2"/>
-         <span>Admission Portal © {new Date().getFullYear()} All Rights Reserved{" "}| Developed by <a className="link-footer" href="https://www.google.com" style={{color:"white"}}>---</a></span>
+                <span><img
+                    src={logo}
+                    width="30"
+                    height="30"
+                    className="d-inline-block mb-2"
+                    alt="BigBooster"
+                /> Admission Portal © {new Date().getFullYear()} All Rights Reserved{" "}| Developed by <a className="link-footer" href="https://www.google.com" style={{color:"white"}}>---</a></span>
                 <hr/>
 
             </Row>

@@ -1,5 +1,5 @@
 import {useState, useEffect, useReducer} from "react";
-import {  useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Swal from "sweetalert2";
 import {Container} from "react-bootstrap";
 
@@ -79,7 +79,9 @@ const SigninPage=()=>{
                                onChange={(e)=> setPsw(e.target.value)} />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
-                    <button type="submit" className="btn white-btn mt-2 mb-2" >Sign In</button>
+                    <button type="submit" className="btn white-btn mt-2 mb-2" >Sign In</button><br/>
+                    <Link to="/register" style={{color:"white"}}>Don't have account? Create one</Link><br/>
+                    <Link to="/reset-password" style={{color:"white"}}>Forgot Password?</Link>
                 </form>
             </div>
             </Container>

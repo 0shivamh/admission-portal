@@ -120,7 +120,7 @@ const AdAdmission= ()=>{
                                     minScreenshotWidth={1040}
                                     minScreenshotHeight={140}
                                 />
-                                <button onClick={capture} className="btn btn-secondary">Camera</button>
+                                <button onClick={capture} className="btn btn-secondary">Capture</button>
                             </div>
 
                         </div>
@@ -197,9 +197,9 @@ const AdAdmission= ()=>{
                                     onChange={(e)=> setDomain(e.target.value)}
                             >
                                 <option value="">Open this select </option>
-                                <option value="IoT">1 </option>
-                                <option value="IoT">2 </option>
-                                <option value="IoT">3 </option>
+                                <option value="IoT">IOT</option>
+                                <option value="DS">DS</option>
+                                <option value="AI">AI</option>
 
                             </select>
                             <label htmlFor="floatingSelect1">Domains</label>

@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import {Badge, Button, Card, Col, Container, ListGroup, Row, Table} from "react-bootstrap";
 import Swal from "sweetalert2";
-import print from 'ink-html'
+
 import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer'
 
 import BackbtnComponent from "../Components/backbtn.component";
@@ -9,6 +9,7 @@ import DownloadPDFComponent from "../Components/DownloadPDF.component";
 import {Link, useNavigate, useParams} from "react-router-dom";
 
 import * as Icon from 'react-bootstrap-icons';
+
 
 
 const ViewAdmissionsPage = ()=>{
@@ -109,7 +110,6 @@ const ViewAdmissionsPage = ()=>{
                 </tr>
                 </thead>
                 <tbody>
-
                 {stud_admissions.map((e,id) => (
                     <tr>
                         <td>{id+1}</td>
@@ -167,7 +167,6 @@ const ViewAdmissionsPage = ()=>{
                         </td>
                     </tr>
                 ))}
-
                 </tbody>
             </Table>
 
