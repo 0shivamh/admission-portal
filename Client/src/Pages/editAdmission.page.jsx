@@ -24,33 +24,6 @@ const EditAdmissionPage= ()=>{
     const [duePayDate, setDuePayDate] = useState(sessionStorage.getItem('duePayDate'));
     const [remark, setRemark]= useState(sessionStorage.getItem('remark'))
 
-    async function getStudent(){
-
-        let stud_id=localStorage.getItem("stud_id")
-        const response = await fetch(`http://localhost:5001/api/get_student/${stud_id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        const data= await response.json();
-        setStudData(data)
-
-
-    }
-
-    //
-    // setName(stud_data.name)
-    // setContact(stud_data.contact)
-    // setDomain(stud_data.domain)
-    // setTotalAmount(stud_data.totalAmount)
-    // setDiscountAmount(stud_data.discountAmount)
-    // setPaidAmount(stud_data.paidAmount)
-    // setDueAmount(stud_data.dueAmount)
-    // setDuePayDate(stud_data.duePayDate)
-    // setRemark(stud_data.remark)
-    // console.table(data)
-
     async function updateAdmission(event){
         event.preventDefault()
 
@@ -101,9 +74,7 @@ const EditAdmissionPage= ()=>{
         }
 
     }
-    useEffect(() => {
-        // getStudent()
-    },[])
+
 
     return(<>
         {/* was-validated */}

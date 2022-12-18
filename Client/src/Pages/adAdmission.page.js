@@ -209,7 +209,7 @@ const AdAdmission= ()=>{
 
                     <div className="col">
                         <div className="form-floating mb-3">
-                            <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                            <input type="number" className="form-control" id="floatingInput4"
                                    value={totalAmount}
                                    onChange={(e)=> setTotalAmount(e.target.value)}
                                    required/>
@@ -217,7 +217,7 @@ const AdAdmission= ()=>{
                         </div>
 
                         <div className="form-floating mb-3">
-                            <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                            <input type="number" className="form-control" id="floatingInput4"
                                    value={discountAmount}
                                    onChange={(e)=> setDiscountAmount(e.target.value)}
                                    required/>
@@ -225,7 +225,7 @@ const AdAdmission= ()=>{
                         </div>
 
                         <div className="form-floating mb-3">
-                            <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                            <input type="number" className="form-control" id="floatingInput4"
                                    value={paidAmount}
                                    onChange={(e)=> setPaidAmount(e.target.value)}
                                    required/>
@@ -233,7 +233,7 @@ const AdAdmission= ()=>{
                         </div>
 
                         <div className="form-floating mb-3">
-                            <input type="number" className="form-control" id="floatingInput4" placeholder="20202020230"
+                            <input type="number" className="form-control" id="floatingInput4"
                                    value={dueAmount}
                                    onChange={(e)=> setDueAmount(e.target.value)}
                                    required/>
@@ -241,7 +241,7 @@ const AdAdmission= ()=>{
                         </div>
 
                         <div className="form-floating mb-3">
-                            <input type="date" className="form-control" id="floatingInput4" placeholder="20202020230"
+                            <input type="date" className="form-control" id="floatingInput4"
                                    value={duePayDate}
                                    onChange={(e)=> setDuePayDate(e.target.value)}
                                    required/>

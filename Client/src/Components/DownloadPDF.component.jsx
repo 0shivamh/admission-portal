@@ -35,7 +35,7 @@ const DownloadPDFComponent = (props) =>{
         const data= await response.json();
         setStud_Admissions(data);
         tmp=data
-        console.log(tmp)
+        // console.log(tmp)
         setLen(data.length);
     }
 

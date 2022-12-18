@@ -29,13 +29,13 @@ const ViewAdmissionsPage = ()=>{
         const data= await response.json();
         setStud_Admissions(data);
         tmp=data
-        console.log(tmp)
+        // console.log(tmp)
         setLen(data.length);
     }
 
     async function removeAdmission(stud_id){
         // let =admissionID
-        console.log(stud_id)
+        // console.log(stud_id)
 
         Swal.fire(
             {title:'Are you Sure to remove?',
@@ -122,6 +122,7 @@ const ViewAdmissionsPage = ()=>{
                 </thead>
                 <tbody>
             {
+
                 stud_admissions.filter(admission => {
                     if (query === '') {
                         return admission;
