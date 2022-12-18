@@ -40,6 +40,7 @@ const AdAdmission= ()=>{
                 body: JSON.stringify({
                     // _id,
                     name,
+                    profile,
                     contact,
                     // course,
                     domain,
@@ -81,7 +82,6 @@ const AdAdmission= ()=>{
             // localStorage.clear();
             // navigate(`/`);
         }
-
     }
 
     const webcamRef = useRef(null);

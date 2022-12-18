@@ -4,6 +4,10 @@ const adminssionSchema = new mongoose.Schema({
     name: {
         type: String,
     },
+    profile:
+        {
+            type:String,
+        },
     contact: {
         type: String,
     },

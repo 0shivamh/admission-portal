@@ -10,20 +10,21 @@ const User = require("./models/user")
 const sgMail = require("@sendgrid/mail");
 const bcrypt = require("bcrypt");
 const Admissions = require("./models/admission")
-const PDFDocument = require('pdfkit')
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+const multer = require('multer');
+
 app.use(cors());
 app.use(express.json());
 
 
-const path = require("path");
 const connectDB = require("./Config/db");
 const auth = require("./middleware/auth");
 
 connectDB();
 
 const PORT = process.env.PORT || 5001;
-
-
 
 app.post("/api/register",
     [check("emp_id", "Please provide Employee id").notEmpty()],
@@ -142,18 +143,19 @@ app.post( "/api/login",
     }
 );
 
-app.post("/api/submitAdmission",auth,
+app.post("/api/submitAdmission",
     async (req, res) => {
 
         const email = req.headers['email_id']
 
         let user = await User.findOne({ email });
 
-        const {  name,contact, domain,   totalAmount,  discountAmount, paidAmount,  dueAmount, duePayDate,remark, } = req.body;
+        const {  name,profile,contact, domain,   totalAmount,  discountAmount, paidAmount,  dueAmount, duePayDate,remark, } = req.body;
 
         try {
             let admission = new Admissions({
                 name:name,
+                profile:profile,
                 contact:contact,
                 domain:domain,
                 totalAmount:totalAmount,
