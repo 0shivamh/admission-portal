@@ -39,8 +39,8 @@ const ReceiptComponent = () =>{
                             <div className="user"><b>Student Name:</b> {stud.name}</div>
                             <div className="user"><b>Student Contact:</b> {stud.contact}</div>
                             <div className="user"><b>Domain:</b> {stud.domain}</div>
-
                         </Col>
+
                         <Col>
                             <div className="user"><b>Total Amount:</b> {stud.totalAmount}</div>
                             <div className="user"><b>Discount Amount:</b> {stud.discountAmount}</div>
@@ -48,7 +48,13 @@ const ReceiptComponent = () =>{
                             <div className="user"><b>Dues Amount:</b> {stud.dueAmount}</div>
                             <div className="user"><b>Dues Payment Date: </b> {stud.duePayDate}</div>
                             <div className="user"><b> Remark:</b> {stud.remark}</div>
+
                         </Col>
+                        <div className="user"><b>Signed by:</b> {sessionStorage.getItem('emp_name')}
+                            <br/>  <span className="user"><b>Verified by</b> {sessionStorage.getItem('emp_id')}</span>
+                        </div>
+
+                        <button className="btn cbtn noprint" onClick={() => window.print()}>Print</button>
                     </Row>
                     <hr/>
                 </Container>

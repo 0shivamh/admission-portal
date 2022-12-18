@@ -19,6 +19,10 @@ const Dashboard= ()=>{
         setOfficer(data)
     }
 
+    // set session vars
+    sessionStorage.setItem('emp_name',Officer.name);
+    sessionStorage.setItem('emp_id',Officer.emp_id);
+
     useEffect(()=>{
         getEmp();
     },[])
