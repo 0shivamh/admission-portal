@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import "./style.component.css"
 const FooterComponent =()=>{
     return(<>
-        <div className="foot">
+        <div className="foot noprint">
         <Container style={{marginTop:"60px"}} >
             <Row>
                 <Col>

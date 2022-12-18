@@ -30,7 +30,7 @@ const ReceiptComponent = () =>{
     return(<>
 
                 <Container className="mt-2">
-                    <BackbtnComponent/>
+                    <BackbtnComponent />
                     <hr/>
                     <p className="h4 ">Fess Receipt</p>
                     <hr/>

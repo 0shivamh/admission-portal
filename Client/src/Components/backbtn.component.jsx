@@ -6,7 +6,7 @@ const BackbtnComponent = ()=>{
 
 
     return(<>
-                <Row xs={2} >
+                <Row xs={2} className="noprint">
                     <Col>
                         <Link to="/" className="btn cbtn">Home</Link>
 

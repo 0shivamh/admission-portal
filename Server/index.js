@@ -251,6 +251,18 @@ app.get( "/api/view_admissions",
     }
 );
 
+app.get("/api/employee/:email",  async (req, res) => {
+    const email=req.params.email
+    try {
+        const emp = await User.findOne({email} );
+        // console.log(emp)
+        return res.send(emp)
+        // return res.json({ status: "okay" });
+    } catch (err) {
+        return res.json({ status: "error" });
+    }
+});
+
 app.get("/api/get_student/:id",  async (req, res) => {
     try {
         const stud = await Admissions.findById(req.params.id );
@@ -269,6 +281,9 @@ app.post("/api/remove_student/:id",  async (req, res,auth,) => {
         return res.json({ status: "error" });
     }
 });
+
+
+
 
 app.listen(PORT, () => {
     console.log("Server is running");

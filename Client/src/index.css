@@ -8,7 +8,7 @@
     color: white;
 }
 .ccard{
-    background-color: #03203C !important;
+    background-color: #242B2E !important;
     color: white;
     border-radius: 5px;
     text-decoration: none;
@@ -51,3 +51,10 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     padding: 30px;
 }
+
+@media print{
+    .noprint{
+        display:none;
+    }
+}
+

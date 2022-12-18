@@ -22,7 +22,7 @@ const NavbarComponent = () =>{
     return(
 
         <>
-            <Navbar expand="lg shadow" bg="dark" style={{color:"white"}}>
+            <Navbar className="noprint" expand="lg shadow" bg="dark" style={{color:"white"}}>
                 <Container>
                     <Navbar.Brand style={{color:"white"}} href="" >Admission Portal</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
